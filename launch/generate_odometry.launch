@@ -1,0 +1,9 @@
+<launch>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base_footprint_to_base_link" args="0 0 0 0 0 0 base_footprint base_link" />
+
+    <!-- EKF Node -->
+    <node pkg="robot_localization" type="ekf_localization_node" name="generate_odom">
+    <rosparam command="load" file="$(find ros_fuse_imu_and_gps)/params/generate_odometry.yaml" />
+    </node>
+
+</launch>
